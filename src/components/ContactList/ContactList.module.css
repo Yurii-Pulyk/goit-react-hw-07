@@ -1,0 +1,6 @@
+.contactList {
+  width: 320px; /* Фіксована ширина списку */
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Відстань між контактами */
+}

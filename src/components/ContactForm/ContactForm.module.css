@@ -1,0 +1,32 @@
+.form {
+  width: 320px; /* Фіксована ширина форми */
+  padding: 16px;
+  border: 2px solid #ccc; /* Сіра рамка */
+  border-radius: 8px; /* Закруглені кути */
+  background-color: #f9f9f9; /* Світлий фон */
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Відступи між елементами */
+  align-items: center; /* Вирівнювання по центру */
+}
+
+.input {
+  width: 95%; /* Робимо поле трохи менше, щоб було красиво */
+  padding: 10px;
+  border: 1px solid #bbb; /* Границя інпутів */
+  border-radius: 4px;
+}
+
+.btn {
+  background-color: #4caf50; /* Зелений колір кнопки */
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%; /* Робимо кнопку на всю ширину */
+}
+
+.btn:hover {
+  background-color: #45a049; /* Темніший відтінок при наведенні */
+}

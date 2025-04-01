@@ -1,0 +1,7 @@
+.searchBox {
+  width: 320px; /* Тієї ж ширини, що й форма */
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  margin: 16px 0; /* Додаємо відступи згори та знизу */
+}
