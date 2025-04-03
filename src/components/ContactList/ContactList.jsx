@@ -11,8 +11,6 @@ export default function ContactList() {
   const contacts = useSelector(selectContacts);
   const filter = useSelector(state => state.filters?.name);
 
-  // const filterString = typeof filter === 'string' ? filter.toLowerCase() : '';
-
   const visibleContacts = useSelector(selectFilteredContacts);
   return (
     <div className={css.contactList}>
