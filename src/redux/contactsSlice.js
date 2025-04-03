@@ -1,5 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { addContact, fetchContacts, deleteContact } from './contactsOps';
+import { createSelector } from '@reduxjs/toolkit';
+import { selectNameFilter } from './filtersSlice';
+// import { createSelector } from '@reduxjs/toolkit';
+
+export const selectContacts = state => state.contacts.items;
+export const selectLoading = state => state.loading;
+export const selectError = state => state.error;
+export const selectFilteredContacts = createSelector(
+  [selectContacts, selectNameFilter],
+  (contacts, filter) => {
+    if (!filter) return contacts;
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(filter.toLowerCase)
+    );
+  }
+);
 
 const initialState = {
   items: [],
@@ -35,7 +51,7 @@ const contactsSlice = createSlice({
         if (Array.isArray(action.payload)) {
           state.items = action.payload;
         } else {
-          state.items = []; // Якщо це не масив, ініціалізуємо як порожній масив
+          state.items = [];
         }
         // state.error = action.payload;
       })

@@ -1,21 +1,19 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from '../../redux/contactsOps';
+import { selectFilteredContacts } from '../../redux/contactsSlice';
+import { selectContacts } from '../../redux/contactsSlice';
 
 import css from './ContactList.module.css';
 import Contact from './Contact';
 
 export default function ContactList() {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts.items);
+  const contacts = useSelector(selectContacts);
   const filter = useSelector(state => state.filters?.name);
 
-  const filterString = typeof filter === 'string' ? filter.toLowerCase() : '';
+  // const filterString = typeof filter === 'string' ? filter.toLowerCase() : '';
 
-  const visibleContacts = Array.isArray(contacts)
-    ? contacts.filter(contact =>
-        contact.name.toLowerCase().startsWith(filterString)
-      )
-    : [];
+  const visibleContacts = useSelector(selectFilteredContacts);
   return (
     <div className={css.contactList}>
       {visibleContacts.length > 0 ? (

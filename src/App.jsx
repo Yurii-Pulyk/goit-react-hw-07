@@ -8,7 +8,9 @@ import { fetchContacts } from './redux/contactsOps';
 
 export default function App() {
   const dispatch = useDispatch();
-  const { loading, error } = useSelector(state => state.contacts);
+  const loading = useSelector(state => state.contacts.loading);
+  const error = useSelector(state => state.contacts.error);
+
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);

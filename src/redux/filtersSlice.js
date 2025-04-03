@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchContacts } from './contactsOps';
 
+export const selectNameFilter = state => state.filters.name;
 const initialState = {
   name: '',
 };
