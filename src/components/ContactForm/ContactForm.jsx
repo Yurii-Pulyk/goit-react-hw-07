@@ -3,7 +3,7 @@ import { useId } from 'react';
 import { Formik, Form, Field } from 'formik';
 import css from './ContactForm.module.css';
 import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contactsSlice';
+import { addContact } from '../../redux/contactsOps';
 
 const validationSchema = Yup.object({
   name: Yup.string().required('Required'),
@@ -16,7 +16,7 @@ export default function ContactForm() {
   const contactFieldId = useId();
 
   const handleSubmit = (values, actions) => {
-    dispatch(addContact(values));
+    dispatch(addContact({ name: values.name, number: values.number }));
     actions.resetForm();
   };
   return (
